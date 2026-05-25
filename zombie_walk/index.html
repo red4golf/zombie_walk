@@ -636,7 +636,7 @@
         <a href="#who">Who Can Join</a>
         <a href="#register" class="nav-cta">Register</a>
       </nav>
-      <button class="nav-toggle" onclick="document.querySelector('.nav-links').style.display='flex';this.style.display='none'">☰</button>
+      <button class="nav-toggle" id="navToggle" onclick="var n=document.querySelector('.nav-links'),open=n.style.display==='flex';n.style.display=open?'none':'flex';this.textContent=open?'☰':'✕'">☰</button>
     </div>
   </header>
 
@@ -916,7 +916,7 @@
               </div>
             </div>
           </div>
-          <span class="reg-err" id="regteam-e" style="display:block;margin-bottom:10px;">Please choose or create a team</span>
+          <span class="reg-err" id="regteam-e" style="display:none;margin-bottom:10px;">Please choose or create a team</span>
           <div class="reg-btn-row split">
             <button class="btn btn-ghost" onclick="regGo(1)">← Back</button>
             <button class="btn btn-primary" onclick="regGo(3)">Next: Review →</button>
@@ -1006,7 +1006,7 @@
         <a href="https://www.facebook.com/angelswingstransport">Facebook</a>
       </div>
     </div>
-    <div class="footer-legal">© 2025 Angels Wings Transport · awtrescue.org · A Step Ahead™ is a trademark of FIX Health. This challenge is independently organized by AWT.</div>
+    <div class="footer-legal">© 2026 Angels Wings Transport · awtrescue.org · A Step Ahead™ is a trademark of FIX Health. This challenge is independently organized by AWT.</div>
   </footer>
 
   <script>
