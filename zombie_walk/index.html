@@ -1,0 +1,1190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mission: On The Move — Angels Wings Transport</title>
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800&family=Open+Sans:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --blue: #1a80b6;        /* AWT primary accent */
+    --blue-dark: #146291;
+    --blue-light: #e8f3fa;
+    --navy: #002245;        /* AWT dark */
+    --navy-light: #003a6b;
+    --white: #ffffff;
+    --off-white: #f7f9fb;
+    --gray: #5a6b7a;
+    --gray-light: #bcbcbc;
+    --text: #2d3a45;
+    --border: #e2e8ee;
+    --green: #4a9960;
+    --gold: #c9a84c;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Open Sans', -apple-system, sans-serif;
+    color: var(--text);
+    background: var(--white);
+    line-height: 1.6;
+  }
+
+  h1, h2, h3, h4, .raleway { font-family: 'Raleway', sans-serif; }
+
+  /* ── TOP UTILITY BAR ── */
+  .util-bar {
+    background: var(--navy);
+    color: rgba(255,255,255,0.7);
+    font-size: 13px;
+    padding: 6px 0;
+    text-align: center;
+    letter-spacing: 0.02em;
+  }
+  .util-bar a { color: var(--blue); text-decoration: none; font-weight: 600; }
+
+  /* ── HEADER / NAV ── */
+  header {
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 1px 8px rgba(0,0,0,0.04);
+  }
+  .nav-inner {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 14px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+  }
+  .brand-logo {
+    width: 46px; height: 46px;
+    background: var(--blue);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    color: white; font-size: 22px;
+    flex-shrink: 0;
+  }
+  .brand-text { line-height: 1.1; }
+  .brand-name {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 800;
+    font-size: 18px;
+    color: var(--navy);
+    letter-spacing: 0.01em;
+  }
+  .brand-tag {
+    font-size: 10px;
+    color: var(--blue);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  .nav-links { display: flex; gap: 28px; align-items: center; }
+  .nav-links a {
+    text-decoration: none;
+    color: var(--text);
+    font-size: 14px;
+    font-weight: 600;
+    font-family: 'Raleway', sans-serif;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--blue); }
+  .nav-cta {
+    background: var(--blue);
+    color: white !important;
+    padding: 9px 20px;
+    border-radius: 4px;
+    transition: background 0.2s;
+  }
+  .nav-cta:hover { background: var(--blue-dark); }
+  .nav-toggle { display: none; background: none; border: none; font-size: 26px; color: var(--navy); cursor: pointer; }
+
+  @media (max-width: 860px) {
+    .nav-links { display: none; }
+    .nav-toggle { display: block; }
+  }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 60%, var(--blue-dark) 100%);
+    color: white;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 70% 50% at 80% 20%, rgba(26,128,182,0.4) 0%, transparent 60%),
+      repeating-linear-gradient(115deg, transparent 0, transparent 60px, rgba(255,255,255,0.02) 60px, rgba(255,255,255,0.02) 61px);
+  }
+  .hero::after {
+    content: '✈️';
+    position: absolute;
+    right: -10px; bottom: -30px;
+    font-size: 280px;
+    opacity: 0.06;
+    transform: rotate(-15deg);
+    line-height: 1;
+  }
+  .hero-inner {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 80px 24px 90px;
+    position: relative;
+    z-index: 2;
+  }
+  .hero-eyebrow {
+    display: inline-block;
+    background: rgba(26,128,182,0.25);
+    border: 1px solid rgba(26,128,182,0.5);
+    color: #8fcdf0;
+    font-family: 'Raleway', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 7px 16px;
+    border-radius: 3px;
+    margin-bottom: 24px;
+  }
+  .hero h1 {
+    font-size: clamp(40px, 7vw, 76px);
+    font-weight: 800;
+    line-height: 0.98;
+    letter-spacing: -0.01em;
+    margin-bottom: 20px;
+  }
+  .hero h1 .accent { color: var(--blue); }
+  .hero-sub {
+    font-size: clamp(17px, 2.4vw, 21px);
+    font-weight: 300;
+    color: rgba(255,255,255,0.85);
+    max-width: 620px;
+    line-height: 1.6;
+    margin-bottom: 36px;
+  }
+  .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: 0.03em;
+    padding: 15px 34px;
+    border-radius: 4px;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s;
+    display: inline-block;
+  }
+  .btn-primary { background: var(--blue); color: white; }
+  .btn-primary:hover { background: var(--blue-dark); transform: translateY(-2px); }
+  .btn-outline { background: transparent; color: white; border: 2px solid rgba(255,255,255,0.35); }
+  .btn-outline:hover { border-color: white; background: rgba(255,255,255,0.08); }
+
+  /* ── STATS STRIP ── */
+  .stats {
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+  }
+  .stats-inner {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 36px 24px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+  .stat { text-align: center; }
+  .stat-num {
+    font-family: 'Raleway', sans-serif;
+    font-size: 42px;
+    font-weight: 800;
+    color: var(--blue);
+    line-height: 1;
+  }
+  .stat-label {
+    font-size: 13px;
+    color: var(--gray);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-top: 6px;
+    font-weight: 600;
+  }
+  @media (max-width: 620px) {
+    .stats-inner { grid-template-columns: 1fr 1fr; gap: 28px; }
+  }
+
+  /* ── SECTION BASE ── */
+  section { scroll-margin-top: 80px; }
+  .container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+  .section-pad { padding: 80px 0; }
+  .section-label {
+    font-family: 'Raleway', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--blue);
+    text-align: center;
+    margin-bottom: 12px;
+  }
+  .section-title {
+    font-size: clamp(28px, 4.5vw, 42px);
+    font-weight: 800;
+    color: var(--navy);
+    text-align: center;
+    line-height: 1.1;
+    margin-bottom: 16px;
+  }
+  .section-intro {
+    font-size: 18px;
+    color: var(--gray);
+    text-align: center;
+    max-width: 680px;
+    margin: 0 auto 56px;
+    line-height: 1.65;
+  }
+
+  /* ── WHAT IS IT ── */
+  .what { background: var(--off-white); }
+  .what-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+  }
+  .what-copy h2 {
+    font-size: clamp(26px, 4vw, 38px);
+    font-weight: 800;
+    color: var(--navy);
+    line-height: 1.15;
+    margin-bottom: 20px;
+  }
+  .what-copy p { font-size: 16px; color: var(--text); margin-bottom: 16px; }
+  .what-copy strong { color: var(--blue-dark); }
+  .what-visual {
+    background: linear-gradient(135deg, var(--navy), var(--blue-dark));
+    border-radius: 14px;
+    padding: 48px 40px;
+    color: white;
+    box-shadow: 0 20px 50px rgba(0,34,69,0.25);
+  }
+  .what-visual-game {
+    font-size: 64px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .what-visual h3 { font-size: 22px; font-weight: 700; margin-bottom: 14px; text-align: center; }
+  .game-feat { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 14px; font-size: 15px; }
+  .game-feat-icon {
+    width: 30px; height: 30px; min-width: 30px;
+    background: rgba(26,128,182,0.3);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 15px;
+  }
+  .game-feat-text { color: rgba(255,255,255,0.85); line-height: 1.45; }
+  @media (max-width: 800px) {
+    .what-grid { grid-template-columns: 1fr; gap: 36px; }
+  }
+
+  /* ── HOW IT WORKS ── */
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+  .step-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 32px 24px;
+    text-align: center;
+    transition: all 0.25s;
+    position: relative;
+  }
+  .step-card:hover {
+    border-color: var(--blue);
+    box-shadow: 0 12px 30px rgba(26,128,182,0.12);
+    transform: translateY(-4px);
+  }
+  .step-badge {
+    position: absolute;
+    top: -14px; left: 50%; transform: translateX(-50%);
+    background: var(--blue);
+    color: white;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    width: 30px; height: 30px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .step-icon { font-size: 40px; margin: 12px 0 16px; }
+  .step-card h3 { font-size: 18px; font-weight: 700; color: var(--navy); margin-bottom: 10px; }
+  .step-card p { font-size: 14px; color: var(--gray); line-height: 1.55; }
+  @media (max-width: 800px) {
+    .steps-grid { grid-template-columns: 1fr 1fr; gap: 32px 24px; }
+  }
+  @media (max-width: 460px) {
+    .steps-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ── THE APP ── */
+  .app { background: var(--navy); color: white; }
+  .app-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+  }
+  .app .section-label { text-align: left; }
+  .app h2 {
+    font-size: clamp(28px, 4.5vw, 40px);
+    font-weight: 800;
+    line-height: 1.12;
+    margin-bottom: 20px;
+  }
+  .app h2 .accent { color: var(--blue); }
+  .app-lead { font-size: 17px; color: rgba(255,255,255,0.8); margin-bottom: 26px; line-height: 1.65; }
+  .app-features { display: flex; flex-direction: column; gap: 18px; }
+  .app-feat { display: flex; gap: 14px; align-items: flex-start; }
+  .app-feat-icon {
+    font-size: 24px; min-width: 34px;
+    width: 34px; height: 34px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .app-feat-title { font-family: 'Raleway', sans-serif; font-weight: 700; font-size: 16px; margin-bottom: 2px; }
+  .app-feat-desc { font-size: 14px; color: rgba(255,255,255,0.65); line-height: 1.5; }
+  .app-phone {
+    background: linear-gradient(160deg, var(--blue-dark), var(--navy-light));
+    border-radius: 24px;
+    padding: 40px 30px;
+    text-align: center;
+    border: 1px solid rgba(255,255,255,0.1);
+    box-shadow: 0 24px 60px rgba(0,0,0,0.4);
+  }
+  .app-phone-screen {
+    font-size: 90px;
+    margin-bottom: 16px;
+  }
+  .app-phone-title { font-family: 'Raleway', sans-serif; font-weight: 700; font-size: 20px; margin-bottom: 8px; }
+  .app-phone-sub { font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.5; }
+  .app-badges { display: flex; gap: 10px; justify-content: center; margin-top: 22px; }
+  .app-badge {
+    background: rgba(0,0,0,0.3);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 7px;
+    padding: 8px 14px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.8);
+    display: flex; align-items: center; gap: 6px;
+  }
+  @media (max-width: 800px) {
+    .app-grid { grid-template-columns: 1fr; gap: 40px; }
+    .app-phone { order: -1; }
+  }
+
+  /* ── WHO IT'S FOR ── */
+  .who-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .who-card {
+    border-radius: 12px;
+    padding: 36px 28px;
+    border: 1px solid var(--border);
+    transition: all 0.25s;
+  }
+  .who-card:hover { transform: translateY(-4px); box-shadow: 0 14px 34px rgba(0,0,0,0.08); }
+  .who-vet { background: linear-gradient(160deg, #f0f6fb, white); border-top: 4px solid var(--blue); }
+  .who-pet { background: linear-gradient(160deg, #f0f9f3, white); border-top: 4px solid var(--green); }
+  .who-all { background: linear-gradient(160deg, #fdf9ef, white); border-top: 4px solid var(--gold); }
+  .who-icon { font-size: 42px; margin-bottom: 16px; }
+  .who-card h3 { font-size: 20px; font-weight: 700; color: var(--navy); margin-bottom: 10px; }
+  .who-card p { font-size: 15px; color: var(--gray); line-height: 1.6; }
+  @media (max-width: 800px) {
+    .who-grid { grid-template-columns: 1fr; gap: 20px; }
+  }
+
+  /* ── MISSION / ABOUT ── */
+  .mission { background: var(--blue-light); }
+  .mission-inner {
+    max-width: 860px; margin: 0 auto; text-align: center;
+  }
+  .mission-quote {
+    font-family: 'Raleway', sans-serif;
+    font-size: clamp(22px, 3.4vw, 30px);
+    font-weight: 600;
+    color: var(--navy);
+    line-height: 1.4;
+    margin-bottom: 24px;
+  }
+  .mission-body { font-size: 16px; color: var(--text); line-height: 1.75; margin-bottom: 16px; }
+
+  /* ── FINAL CTA ── */
+  .final-cta {
+    background: linear-gradient(135deg, var(--blue-dark), var(--navy));
+    color: white;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .final-cta::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 60% 60% at 50% 0%, rgba(26,128,182,0.4), transparent 70%);
+  }
+  .final-cta .container { position: relative; z-index: 2; }
+  .final-cta h2 {
+    font-size: clamp(30px, 5vw, 48px);
+    font-weight: 800;
+    line-height: 1.05;
+    margin-bottom: 18px;
+  }
+  .final-cta p { font-size: 18px; color: rgba(255,255,255,0.82); max-width: 540px; margin: 0 auto 32px; }
+  .final-cta .btn-primary { font-size: 17px; padding: 18px 44px; }
+  .final-note { margin-top: 18px; font-size: 14px; color: rgba(255,255,255,0.55); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--navy);
+    color: rgba(255,255,255,0.6);
+    padding: 44px 0 32px;
+    font-size: 14px;
+  }
+  .footer-inner {
+    max-width: 1140px; margin: 0 auto; padding: 0 24px;
+    display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap;
+  }
+  .footer-brand { font-family: 'Raleway', sans-serif; font-weight: 800; font-size: 18px; color: white; }
+  .footer-brand span { color: var(--blue); font-weight: 400; font-size: 13px; display: block; letter-spacing: 0.1em; text-transform: uppercase; margin-top: 2px; }
+  .footer-links { display: flex; gap: 24px; flex-wrap: wrap; }
+  .footer-links a { color: rgba(255,255,255,0.6); text-decoration: none; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--blue); }
+  .footer-legal { width: 100%; text-align: center; margin-top: 28px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 13px; color: rgba(255,255,255,0.4); }
+
+  /* ── REGISTRATION SECTION ── */
+  .register-section { background: var(--off-white); }
+  .reg-card {
+    max-width: 640px;
+    margin: 0 auto;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 40px;
+    box-shadow: 0 16px 44px rgba(0,34,69,0.08);
+  }
+  @media (max-width: 560px) { .reg-card { padding: 28px 20px; } }
+
+  .reg-steps { display: flex; align-items: center; margin-bottom: 32px; }
+  .reg-step { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+  .reg-step-circle {
+    width: 38px; height: 38px; border-radius: 50%;
+    border: 2px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Raleway', sans-serif; font-weight: 700; font-size: 15px;
+    color: var(--gray-light); background: white; transition: all 0.3s;
+  }
+  .reg-step.active .reg-step-circle { border-color: var(--blue); background: var(--blue); color: white; }
+  .reg-step.done .reg-step-circle { border-color: var(--green); background: var(--green); color: white; }
+  .reg-step-label { font-size: 11px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: var(--gray-light); }
+  .reg-step.active .reg-step-label { color: var(--blue); }
+  .reg-step.done .reg-step-label { color: var(--green); }
+  .reg-step-line { flex: 1; height: 2px; background: var(--border); margin: 0 8px 20px; }
+
+  .reg-panel { display: none; animation: regFade 0.4s ease; }
+  .reg-panel.active { display: block; }
+  @keyframes regFade { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+
+  .reg-callout {
+    background: var(--blue-light);
+    border-left: 3px solid var(--blue);
+    border-radius: 0 6px 6px 0;
+    padding: 14px 16px;
+    font-size: 14px;
+    color: var(--text);
+    line-height: 1.55;
+    margin-bottom: 24px;
+  }
+  .reg-callout strong { color: var(--blue-dark); }
+
+  .reg-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+  .reg-row.single { grid-template-columns: 1fr; }
+  @media (max-width: 480px) { .reg-row { grid-template-columns: 1fr; } }
+  .reg-field { display: flex; flex-direction: column; gap: 6px; }
+  .reg-field label {
+    font-family: 'Raleway', sans-serif; font-size: 13px; font-weight: 600;
+    color: var(--navy); letter-spacing: 0.02em;
+  }
+  .reg-field label .opt { color: var(--gray-light); font-weight: 400; }
+  .reg-field input, .reg-field select {
+    border: 1.5px solid var(--border); border-radius: 6px;
+    padding: 12px 14px; font-family: 'Open Sans', sans-serif; font-size: 15px;
+    color: var(--text); background: white; outline: none; transition: border-color 0.2s;
+    -webkit-appearance: none;
+  }
+  .reg-field input:focus, .reg-field select:focus { border-color: var(--blue); }
+  .reg-err { color: #d23b3b; font-size: 12px; display: none; }
+  .reg-field input.bad, .reg-field select.bad { border-color: #d23b3b; }
+
+  .reg-btn-row { margin-top: 28px; }
+  .reg-btn-row.split { display: flex; gap: 12px; }
+  .reg-btn-row .reg-next { width: 100%; }
+  .btn-ghost { background: transparent; color: var(--gray); border: 1.5px solid var(--border); }
+  .btn-ghost:hover { border-color: var(--gray); color: var(--text); }
+  .reg-btn-row.split .btn-primary { flex: 1; }
+
+  /* team cards */
+  .team-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 18px; }
+  @media (max-width: 480px) { .team-grid { grid-template-columns: 1fr; } }
+  .team-card {
+    border: 1.5px solid var(--border); border-radius: 8px; padding: 14px 16px;
+    cursor: pointer; transition: all 0.2s; position: relative; display: block;
+  }
+  .team-card:hover { border-color: var(--blue); background: var(--blue-light); }
+  .team-card.sel { border-color: var(--blue); background: var(--blue-light); box-shadow: 0 0 0 1px var(--blue); }
+  .team-card input { position: absolute; opacity: 0; }
+  .team-tag {
+    font-family: 'Raleway', sans-serif; font-size: 10px; font-weight: 700;
+    letter-spacing: 0.08em; text-transform: uppercase; padding: 3px 8px;
+    border-radius: 3px; display: inline-block; margin-bottom: 8px;
+  }
+  .tag-vet { background: rgba(26,128,182,0.15); color: var(--blue-dark); }
+  .tag-pet { background: rgba(74,153,96,0.15); color: var(--green); }
+  .tag-all { background: rgba(201,168,76,0.18); color: #9a7d28; }
+  .team-card-name { font-family: 'Raleway', sans-serif; font-weight: 700; font-size: 16px; color: var(--navy); line-height: 1.2; margin-bottom: 3px; }
+  .team-card-meta { font-size: 13px; color: var(--gray); }
+  .own-team {
+    grid-column: 1 / -1; border: 1.5px dashed var(--gray-light); border-radius: 8px;
+    padding: 14px; text-align: center; cursor: pointer; transition: all 0.2s;
+    color: var(--gray); font-size: 14px; font-weight: 600; font-family: 'Raleway', sans-serif;
+  }
+  .own-team:hover, .own-team.sel { border-color: var(--blue); color: var(--blue); background: var(--blue-light); }
+  .reg-newteam-note { background: var(--blue-light); border-radius: 6px; padding: 12px 14px; font-size: 13px; color: var(--text); line-height: 1.5; margin-bottom: 16px; }
+  .reg-newteam-note strong { color: var(--blue-dark); }
+
+  /* review */
+  .reg-review { background: var(--off-white); border-radius: 8px; padding: 8px 20px; margin-bottom: 24px; }
+  .reg-review-row { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid var(--border); }
+  .reg-review-row:last-child { border-bottom: none; }
+  .reg-review-row span { color: var(--gray); font-size: 14px; }
+  .reg-review-row strong { font-family: 'Raleway', sans-serif; color: var(--navy); font-size: 15px; }
+  .reg-review-row strong.accent-blue { color: var(--blue); }
+
+  .reg-consent { display: flex; gap: 12px; align-items: flex-start; padding: 14px; background: var(--off-white); border-radius: 8px; margin-bottom: 12px; cursor: pointer; }
+  .reg-consent input { width: 18px; height: 18px; min-width: 18px; margin-top: 2px; accent-color: var(--blue); cursor: pointer; }
+  .reg-consent span { font-size: 13px; color: var(--gray); line-height: 1.5; }
+  .reg-consent strong { color: var(--navy); }
+
+  /* success */
+  .reg-success { text-align: center; padding: 12px; }
+  .reg-success-icon {
+    width: 64px; height: 64px; background: var(--green); color: white;
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    font-size: 30px; margin: 0 auto 20px;
+  }
+  .reg-success h3 { font-family: 'Raleway', sans-serif; font-size: 26px; font-weight: 800; color: var(--navy); margin-bottom: 12px; }
+  .reg-success > p { font-size: 16px; color: var(--gray); margin-bottom: 24px; }
+  .reg-next-box { background: var(--off-white); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; text-align: left; margin-bottom: 12px; }
+  .reg-next-label { font-family: 'Raleway', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--blue); margin-bottom: 8px; }
+  .reg-next-text { font-size: 14px; color: var(--text); line-height: 1.6; }
+  .reg-code { display: inline-block; background: var(--navy); color: var(--gold); font-family: 'Raleway', sans-serif; font-weight: 700; letter-spacing: 0.1em; padding: 3px 12px; border-radius: 5px; margin-left: 4px; }
+
+  /* reveal animation */
+  .reveal { opacity: 0; transform: translateY(24px); transition: all 0.7s cubic-bezier(0.2,0.8,0.2,1); }
+  .reveal.in { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+
+  <!-- UTILITY BAR -->
+  <div class="util-bar">
+    🎉 Registration is open for our 4-week community walking challenge — <a href="#register">Join a team today →</a>
+  </div>
+
+  <!-- HEADER -->
+  <header>
+    <div class="nav-inner">
+      <a href="http://www.awtrescue.org" class="brand">
+        <div class="brand-logo">✈️</div>
+        <div class="brand-text">
+          <div class="brand-name">Angels Wings Transport</div>
+          <div class="brand-tag">Changing a Life With Every Flight</div>
+        </div>
+      </a>
+      <nav class="nav-links">
+        <a href="#about">The Event</a>
+        <a href="#how">How It Works</a>
+        <a href="#app">The App</a>
+        <a href="#who">Who Can Join</a>
+        <a href="#register" class="nav-cta">Register</a>
+      </nav>
+      <button class="nav-toggle" onclick="document.querySelector('.nav-links').style.display='flex';this.style.display='none'">☰</button>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-inner">
+      <span class="hero-eyebrow">A Community Fitness Challenge</span>
+      <h1>Mission:<br><span class="accent">On The Move</span></h1>
+      <p class="hero-sub">Walk, compete, and build community while supporting free flights for veterans, rescue animals, and medical patients across the Pacific Northwest. Every step moves the mission forward.</p>
+      <div class="hero-btns">
+        <a href="#register" class="btn btn-primary">Register Your Team</a>
+        <a href="#how" class="btn btn-outline">See How It Works</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- STATS -->
+  <div class="stats">
+    <div class="stats-inner">
+      <div class="stat"><div class="stat-num">4</div><div class="stat-label">Week Challenge</div></div>
+      <div class="stat"><div class="stat-num">1–10</div><div class="stat-label">Players Per Team</div></div>
+      <div class="stat"><div class="stat-num">3</div><div class="stat-label">Missions Supported</div></div>
+      <div class="stat"><div class="stat-num">100%</div><div class="stat-label">For The Cause</div></div>
+    </div>
+  </div>
+
+  <!-- WHAT IS IT -->
+  <section class="what section-pad" id="about">
+    <div class="container">
+      <div class="what-grid">
+        <div class="what-copy reveal">
+          <div class="section-label" style="text-align:left;">What Is It?</div>
+          <h2>A walking challenge that turns your steps into a mission.</h2>
+          <p><strong>Mission: On The Move</strong> is a 4-week team-based walking challenge powered by the A Step Ahead™ app. Your everyday steps become the fuel for an interactive adventure where teams race through a story together.</p>
+          <p>It's not just a fitness tracker — it's a <strong>game</strong>. You and your teammates use real-world steps to move through the story, while friendly competition keeps everyone motivated to the finish.</p>
+          <p>Best of all, every participant becomes part of the Angels Wings Transport community — connected to the veterans, families, and animals your effort helps support.</p>
+        </div>
+        <div class="what-visual reveal">
+          <div class="what-visual-game">🎮👟</div>
+          <h3>Walk now. Play anytime.</h3>
+          <div class="game-feat"><div class="game-feat-icon">👣</div><div class="game-feat-text">Your steps move your team forward through an interactive adventure</div></div>
+          <div class="game-feat"><div class="game-feat-icon">🏆</div><div class="game-feat-text">Compete on team leaderboards with friendly rivalry</div></div>
+          <div class="game-feat"><div class="game-feat-icon">⌚</div><div class="game-feat-text">Syncs automatically — the app doesn't need to be open while you walk</div></div>
+          <div class="game-feat"><div class="game-feat-icon">💙</div><div class="game-feat-text">All in support of Angels Wings Transport's mission</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="section-pad" id="how">
+    <div class="container">
+      <div class="section-label reveal">Getting Started</div>
+      <h2 class="section-title reveal">Four simple steps</h2>
+      <p class="section-intro reveal">No special equipment, no experience required. If you have a smartphone and a desire to move, you're ready to join.</p>
+      <div class="steps-grid">
+        <div class="step-card reveal"><div class="step-badge">1</div><div class="step-icon">📋</div><h3>Register</h3><p>Sign up below and choose your team — or start a new one for your organization.</p></div>
+        <div class="step-card reveal"><div class="step-badge">2</div><div class="step-icon">📱</div><h3>Get the App</h3><p>Download A Step Ahead™ and enter your team's invite code to join the challenge.</p></div>
+        <div class="step-card reveal"><div class="step-badge">3</div><div class="step-icon">👟</div><h3>Walk & Play</h3><p>Sync your steps from your phone or wearable and advance through the adventure.</p></div>
+        <div class="step-card reveal"><div class="step-badge">4</div><div class="step-icon">✈️</div><h3>Make an Impact</h3><p>Stay connected to AWT and the missions your participation helps make possible.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE APP -->
+  <section class="app section-pad" id="app">
+    <div class="container">
+      <div class="app-grid">
+        <div class="app-copy reveal">
+          <div class="section-label">The Technology</div>
+          <h2>Powered by <span class="accent">A Step Ahead™</span></h2>
+          <p class="app-lead">A Step Ahead is an award-winning, game-based walking challenge used by organizations worldwide for its industry-leading engagement. We're bringing it to the AWT community.</p>
+          <div class="app-features">
+            <div class="app-feat"><div class="app-feat-icon">🎯</div><div><div class="app-feat-title">A Real Game, Not Just a Tracker</div><div class="app-feat-desc">Race through story-driven adventures where your steps power the action.</div></div></div>
+            <div class="app-feat"><div class="app-feat-icon">⌚</div><div><div class="app-feat-title">Syncs With Everything</div><div class="app-feat-desc">Works with Apple Watch, Fitbit, Garmin, Apple Health, Google Fit — or just your phone.</div></div></div>
+            <div class="app-feat"><div class="app-feat-icon">👥</div><div><div class="app-feat-title">Built for Teams</div><div class="app-feat-desc">Gameplay scales to team size, so everyone competes fairly regardless of fitness level.</div></div></div>
+            <div class="app-feat"><div class="app-feat-icon">📈</div><div><div class="app-feat-title">Stay Motivated</div><div class="app-feat-desc">Leaderboards, daily goals, and team camaraderie keep you moving all 4 weeks.</div></div></div>
+          </div>
+        </div>
+        <div class="app-phone reveal">
+          <div class="app-phone-screen">📲</div>
+          <div class="app-phone-title">A Step Ahead™</div>
+          <div class="app-phone-sub">Free to download. Enter your AWT team invite code to begin your adventure.</div>
+          <div class="app-badges">
+            <div class="app-badge">🍎 App Store</div>
+            <div class="app-badge">▶ Google Play</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO CAN JOIN -->
+  <section class="section-pad" id="who">
+    <div class="container">
+      <div class="section-label reveal">Who Can Join</div>
+      <h2 class="section-title reveal">Everyone's welcome on the mission</h2>
+      <p class="section-intro reveal">Whether you come as an organized team or a single walker, there's a place for you in the challenge.</p>
+      <div class="who-grid">
+        <div class="who-card who-vet reveal">
+          <div class="who-icon">🎖️</div>
+          <h3>Veterans & Posts</h3>
+          <p>American Legion and VFW posts can field their own teams. AWT was founded by a veteran, for veterans — this is a mission worth marching for.</p>
+        </div>
+        <div class="who-card who-pet reveal">
+          <div class="who-icon">🐾</div>
+          <h3>The Pet Community</h3>
+          <p>Veterinary clinics, groomers, and pet stores can compete as teams and rally their clients behind the animals AWT flies to safety.</p>
+        </div>
+        <div class="who-card who-all reveal">
+          <div class="who-icon">🤝</div>
+          <h3>Individuals & Supporters</h3>
+          <p>No team? No problem. Join as an individual and we'll place you on a community team alongside fellow AWT supporters.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MISSION -->
+  <section class="mission section-pad">
+    <div class="container">
+      <div class="mission-inner reveal">
+        <div class="section-label">Why It Matters</div>
+        <div class="mission-quote">"Changing a life with every flight."</div>
+        <p class="mission-body">Angels Wings Transport is an all-volunteer 501(c)(3) nonprofit. Using a network of volunteer pilots flying their own aircraft, we provide free air transport for wounded warriors and military families, rescue animals escaping kill shelters, and medical patients who can't afford the journey to care.</p>
+        <p class="mission-body">When you walk in Mission: On The Move, you're not just getting healthier — you're growing the community that keeps these flights in the air.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="final-cta section-pad">
+    <div class="container">
+      <h2 class="reveal">Ready to join the mission?</h2>
+      <p class="reveal">Register your team, lace up, and become part of something bigger — one step at a time.</p>
+      <a href="#register" class="btn btn-primary reveal">Register Now</a>
+      <div class="final-note reveal">Questions? Email charles@awtrescue.org · Challenge begins [START DATE]</div>
+    </div>
+  </section>
+
+  <!-- ════ REGISTRATION FORM ════ -->
+  <section class="register-section section-pad" id="register">
+    <div class="container">
+      <div class="section-label reveal">Sign Up</div>
+      <h2 class="section-title reveal">Register for the challenge</h2>
+      <p class="section-intro reveal">Three quick steps. We'll collect a few details, get you on a team, and send your invite code to join the app.</p>
+
+      <div class="reg-card reveal">
+        <!-- STEP INDICATOR -->
+        <div class="reg-steps">
+          <div class="reg-step active" id="rs1"><div class="reg-step-circle">1</div><div class="reg-step-label">Your Info</div></div>
+          <div class="reg-step-line"></div>
+          <div class="reg-step" id="rs2"><div class="reg-step-circle">2</div><div class="reg-step-label">Your Team</div></div>
+          <div class="reg-step-line"></div>
+          <div class="reg-step" id="rs3"><div class="reg-step-circle">3</div><div class="reg-step-label">Confirm</div></div>
+        </div>
+
+        <!-- PANEL 1 -->
+        <div class="reg-panel active" id="regp1">
+          <div class="reg-callout">
+            <strong>Why we ask:</strong> Your email joins the AWT community newsletter — mission stories, updates, and ways to help. We never sell or share your information.
+          </div>
+          <div class="reg-row">
+            <div class="reg-field">
+              <label for="rfname">First Name</label>
+              <input type="text" id="rfname" placeholder="First">
+              <span class="reg-err" id="rfname-e">Required</span>
+            </div>
+            <div class="reg-field">
+              <label for="rlname">Last Name</label>
+              <input type="text" id="rlname" placeholder="Last">
+              <span class="reg-err" id="rlname-e">Required</span>
+            </div>
+          </div>
+          <div class="reg-row single">
+            <div class="reg-field">
+              <label for="remail">Email Address</label>
+              <input type="email" id="remail" placeholder="you@example.com">
+              <span class="reg-err" id="remail-e">Please enter a valid email</span>
+            </div>
+          </div>
+          <div class="reg-row single">
+            <div class="reg-field">
+              <label for="rphone">Phone <span class="opt">(optional)</span></label>
+              <input type="tel" id="rphone" placeholder="(360) 555-0100">
+            </div>
+          </div>
+          <div class="reg-row single">
+            <div class="reg-field">
+              <label for="rconn">My Connection to AWT</label>
+              <select id="rconn">
+                <option value="" disabled selected>Select one…</option>
+                <option>Veteran or Active Military</option>
+                <option>Military Family Member</option>
+                <option>American Legion / VFW Post</option>
+                <option>Animal Rescue / Pet Community</option>
+                <option>Veterinary / Pet Business</option>
+                <option>Medical Patient or Caregiver</option>
+                <option>Pilot / Aviation Community</option>
+                <option>Community Supporter</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+          <div class="reg-btn-row">
+            <button class="btn btn-primary reg-next" onclick="regGo(2)">Next: Choose Your Team →</button>
+          </div>
+        </div>
+
+        <!-- PANEL 2 -->
+        <div class="reg-panel" id="regp2">
+          <div class="reg-callout">
+            Teams of up to 10 compete together. Join an existing team, or register your organization as a brand-new team.
+          </div>
+          <div class="team-grid" id="regTeamGrid">
+            <label class="team-card" onclick="regSelectTeam(this)">
+              <input type="radio" name="regteam" value="VFW Post 1285">
+              <span class="team-tag tag-vet">Veterans</span>
+              <div class="team-card-name">VFW Post 1285</div>
+              <div class="team-card-meta">Renton, WA</div>
+            </label>
+            <label class="team-card" onclick="regSelectTeam(this)">
+              <input type="radio" name="regteam" value="American Legion Post 282">
+              <span class="team-tag tag-vet">Veterans</span>
+              <div class="team-card-name">American Legion Post 282</div>
+              <div class="team-card-meta">Kent, WA</div>
+            </label>
+            <label class="team-card" onclick="regSelectTeam(this)">
+              <input type="radio" name="regteam" value="Cascade Vet Clinic">
+              <span class="team-tag tag-pet">Pet Community</span>
+              <div class="team-card-name">Cascade Vet Clinic</div>
+              <div class="team-card-meta">Bellevue, WA</div>
+            </label>
+            <label class="team-card" onclick="regSelectTeam(this)">
+              <input type="radio" name="regteam" value="Paws & Claws Grooming">
+              <span class="team-tag tag-pet">Pet Community</span>
+              <div class="team-card-name">Paws &amp; Claws Grooming</div>
+              <div class="team-card-meta">Auburn, WA</div>
+            </label>
+            <label class="team-card" onclick="regSelectTeam(this)">
+              <input type="radio" name="regteam" value="AWT Pilots">
+              <span class="team-tag tag-all">Aviation</span>
+              <div class="team-card-name">AWT Pilots</div>
+              <div class="team-card-meta">Renton Municipal (RNT)</div>
+            </label>
+            <label class="team-card" onclick="regSelectTeam(this)">
+              <input type="radio" name="regteam" value="Community Team">
+              <span class="team-tag tag-all">Open to All</span>
+              <div class="team-card-name">Community Team</div>
+              <div class="team-card-meta">Don't have a team? Join here</div>
+            </label>
+            <div class="own-team" id="regOwnTeam" onclick="regSelectOwn()">+ Register my organization as a new team</div>
+          </div>
+          <div id="regNewTeam" style="display:none;">
+            <div class="reg-newteam-note">As the person setting up this team, you'll be its <strong>team organizer</strong> — your teammates join by selecting your team here once it's listed.</div>
+            <div class="reg-row single">
+              <div class="reg-field">
+                <label for="rorg">Organization / Team Name</label>
+                <input type="text" id="rorg" placeholder="e.g. Northgate Animal Hospital">
+              </div>
+            </div>
+            <div class="reg-row single">
+              <div class="reg-field">
+                <label for="rorgtype">Organization Type</label>
+                <select id="rorgtype">
+                  <option value="" disabled selected>Select one…</option>
+                  <option>VFW Post</option>
+                  <option>American Legion Post</option>
+                  <option>Veterinary Clinic</option>
+                  <option>Pet Store</option>
+                  <option>Pet Groomer</option>
+                  <option>Animal Rescue</option>
+                  <option>Flight School / Aviation</option>
+                  <option>Business / Company</option>
+                  <option>Other</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <span class="reg-err" id="regteam-e" style="display:block;margin-bottom:10px;">Please choose or create a team</span>
+          <div class="reg-btn-row split">
+            <button class="btn btn-ghost" onclick="regGo(1)">← Back</button>
+            <button class="btn btn-primary" onclick="regGo(3)">Next: Review →</button>
+          </div>
+        </div>
+
+        <!-- PANEL 3 -->
+        <div class="reg-panel" id="regp3">
+          <div class="reg-review">
+            <div class="reg-review-row"><span>Name</span><strong id="rv-name"></strong></div>
+            <div class="reg-review-row"><span>Email</span><strong id="rv-email"></strong></div>
+            <div class="reg-review-row"><span>Team</span><strong id="rv-team" class="accent-blue"></strong></div>
+            <div class="reg-review-row"><span>Connection</span><strong id="rv-conn"></strong></div>
+          </div>
+          <label class="reg-consent">
+            <input type="checkbox" id="rc1" checked>
+            <span><strong>Keep me in the loop:</strong> Add me to the Angels Wings Transport community newsletter — mission stories, updates, and ways to help. <em>Optional — uncheck to skip. You can unsubscribe anytime.</em></span>
+          </label>
+          <label class="reg-consent">
+            <input type="checkbox" id="rc2">
+            <span><strong>Challenge participation:</strong> I understand I'll receive an invite code to join the challenge in the A Step Ahead™ app (a third-party platform), and that AWT will email me my code and challenge details.</span>
+          </label>
+          <span class="reg-err" id="regconsent-e">Please check the challenge participation box to continue</span>
+          <div class="reg-btn-row split">
+            <button class="btn btn-ghost" onclick="regGo(2)">← Back</button>
+            <button class="btn btn-primary" onclick="regSubmit()">Continue to Payment →</button>
+          </div>
+        </div>
+
+        <!-- PANEL 4: PAYMENT HANDOFF (paid participants) -->
+        <div class="reg-panel" id="regp4">
+          <div class="reg-success">
+            <div class="reg-success-icon">✓</div>
+            <h3>Almost there — one last step</h3>
+            <p>Your registration details are saved. To lock in your spot, complete your <strong>$5 challenge registration</strong> below. Your invite code is emailed to you as soon as payment clears.</p>
+            <div class="reg-next-box">
+              <div class="reg-next-label">Step 1 — Complete Payment</div>
+              <div class="reg-next-text">You'll be taken to our secure checkout. After paying, watch your inbox — your A Step Ahead™ invite code arrives by email, usually within a few minutes.</div>
+              <a id="payBtn" class="btn btn-primary" style="margin-top:14px;display:inline-block;" href="#" target="_blank" rel="noopener">Pay $5 &amp; Get My Code →</a>
+            </div>
+            <div class="reg-next-box">
+              <div class="reg-next-label">Step 2 — Download the App</div>
+              <div class="reg-next-text">Get <strong>A Step Ahead™</strong> ready while you wait. Enter your invite code once it arrives by email.</div>
+              <div class="app-badges" style="justify-content:flex-start;margin-top:14px;">
+                <div class="app-badge">🍎 App Store</div>
+                <div class="app-badge">▶ Google Play</div>
+              </div>
+            </div>
+            <p style="font-size:13px;color:var(--gray-light);margin-top:8px;">Trouble with payment? Email charles@awtrescue.org and we'll get you sorted.</p>
+          </div>
+        </div>
+
+        <!-- PANEL 5: COMPED / NO-PAYMENT RECEIVED STATE (team organizers handled by AWT) -->
+        <div class="reg-panel" id="regp5">
+          <div class="reg-success">
+            <div class="reg-success-icon">✓</div>
+            <h3>You're all set — thank you!</h3>
+            <p>Your registration as a <strong>team organizer</strong> is received. We'll be in touch by email shortly with your team's invite code and everything you need to get your group started.</p>
+            <div class="reg-next-box">
+              <div class="reg-next-label">What Happens Next</div>
+              <div class="reg-next-text">Keep an eye on your inbox — your invite code and a short organizer's guide are on the way. Your teammates will be able to join your team once it's listed.</div>
+            </div>
+            <div class="reg-next-box">
+              <div class="reg-next-label">Get the App Ready</div>
+              <div class="reg-next-text">Download <strong>A Step Ahead™</strong> now so you're ready to enter your code the moment it arrives.</div>
+              <div class="app-badges" style="justify-content:flex-start;margin-top:14px;">
+                <div class="app-badge">🍎 App Store</div>
+                <div class="app-badge">▶ Google Play</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">Angels Wings Transport<span>501(c)(3) Nonprofit · EIN 47-4874470</span></div>
+      <div class="footer-links">
+        <a href="http://www.awtrescue.org">Home</a>
+        <a href="http://www.awtrescue.org/our-services/animal-rescue/">Animal Rescue</a>
+        <a href="http://www.awtrescue.org/our-services/military-member-transport/">Military Transport</a>
+        <a href="http://www.awtrescue.org/about/">About</a>
+        <a href="https://www.facebook.com/angelswingstransport">Facebook</a>
+      </div>
+    </div>
+    <div class="footer-legal">© 2025 Angels Wings Transport · awtrescue.org · A Step Ahead™ is a trademark of FIX Health. This challenge is independently organized by AWT.</div>
+  </footer>
+
+  <script>
+    // ── Registration form logic ──
+    let regTeam = '';
+    let regOwn = false;
+
+    // Teams that already have a captain/organizer assigned.
+    // Pre-listed teams already have one, so new joiners become regular members.
+    // In production, hydrate this set from your backend (teams whose captain seat is filled).
+    const teamsWithCaptain = new Set([
+      'VFW Post 1285',
+      'American Legion Post 282',
+      'Cascade Vet Clinic',
+      'Paws & Claws Grooming',
+      'AWT Pilots',
+      'Community Team'
+    ]);
+
+    function regSelectTeam(el) {
+      document.querySelectorAll('#regTeamGrid .team-card').forEach(c => c.classList.remove('sel'));
+      document.getElementById('regOwnTeam').classList.remove('sel');
+      el.classList.add('sel');
+      regTeam = el.querySelector('input').value;
+      regOwn = false;
+      document.getElementById('regNewTeam').style.display = 'none';
+      document.getElementById('regteam-e').style.display = 'none';
+    }
+
+    function regSelectOwn() {
+      document.querySelectorAll('#regTeamGrid .team-card').forEach(c => c.classList.remove('sel'));
+      document.getElementById('regOwnTeam').classList.add('sel');
+      document.getElementById('regNewTeam').style.display = 'block';
+      regOwn = true; regTeam = '';
+      document.getElementById('regteam-e').style.display = 'none';
+    }
+
+    function regBad(id, eid, bad) {
+      const el = document.getElementById(id), e = document.getElementById(eid);
+      if (bad) { el.classList.add('bad'); e.style.display = 'block'; }
+      else { el.classList.remove('bad'); e.style.display = 'none'; }
+    }
+
+    // Determine whether THIS registrant is the team captain.
+    // Captain = the person who creates a brand-new team that doesn't yet have one.
+    // Joining any existing team (which already has a captain) => regular member.
+    function regIsCaptain() {
+      if (!regOwn) return false;                       // joining existing team => member
+      const name = document.getElementById('rorg').value.trim();
+      if (!name) return false;
+      // If a team by this name already has a captain, this person is NOT the captain.
+      if (teamsWithCaptain.has(name)) return false;
+      return true;                                     // first organizer of a new team
+    }
+
+    function regGo(n) {
+      if (n === 2) {
+        const f = document.getElementById('rfname').value.trim();
+        const l = document.getElementById('rlname').value.trim();
+        const em = document.getElementById('remail').value.trim();
+        let ok = true;
+        regBad('rfname','rfname-e', !f); if(!f) ok=false;
+        regBad('rlname','rlname-e', !l); if(!l) ok=false;
+        const emOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em);
+        regBad('remail','remail-e', !emOk); if(!emOk) ok=false;
+        if (!ok) return;
+      }
+      if (n === 3) {
+        const newName = regOwn ? document.getElementById('rorg').value.trim() : '';
+        const teamOk = regTeam || (regOwn && newName);
+        if (!teamOk) { document.getElementById('regteam-e').style.display = 'block'; return; }
+
+        // ── One-captain-per-team guard ──
+        // If they tried to "create" a team that already exists & has a captain,
+        // quietly convert their entry to joining it as a member (no captain claim).
+        if (regOwn && teamsWithCaptain.has(newName)) {
+          regOwn = false;
+          regTeam = newName;
+          document.getElementById('regNewTeam').style.display = 'none';
+        }
+
+        document.getElementById('rv-name').textContent = document.getElementById('rfname').value.trim() + ' ' + document.getElementById('rlname').value.trim();
+        document.getElementById('rv-email').textContent = document.getElementById('remail').value.trim();
+        document.getElementById('rv-team').textContent = regOwn ? (document.getElementById('rorg').value.trim() + ' (new team)') : regTeam;
+        document.getElementById('rv-conn').textContent = document.getElementById('rconn').value || '—';
+      }
+      for (let i = 1; i <= 3; i++) {
+        const s = document.getElementById('rs' + i);
+        s.classList.remove('active','done');
+        if (i < n) s.classList.add('done');
+        if (i === n) s.classList.add('active');
+      }
+      document.querySelectorAll('.reg-panel').forEach(p => p.classList.remove('active'));
+      document.getElementById('regp' + n).classList.add('active');
+      document.getElementById('register').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    // ── CONFIG: paste your Stripe Payment Link here ──
+    // Create a $5 Payment Link in Stripe (instructions provided separately),
+    // then paste its URL below. Leave as-is to see the flow without a live link.
+    const STRIPE_PAYMENT_LINK = 'https://buy.stripe.com/REPLACE_WITH_YOUR_LINK';
+
+    // ── CONFIG: your Make.com webhook URL for capturing the registration ──
+    const MAKE_WEBHOOK_URL = 'https://hook.us1.make.com/REPLACE_WITH_YOUR_WEBHOOK';
+
+    function regSubmit() {
+      const newsletterOptIn = document.getElementById('rc1').checked; // OPTIONAL — just record it
+      const participation = document.getElementById('rc2').checked;   // REQUIRED
+      const e = document.getElementById('regconsent-e');
+      if (!participation) { e.style.display = 'block'; return; }       // only the participation box is required
+      e.style.display = 'none';
+
+      // Captain status is computed silently — nothing in the UI reveals it.
+      const isCaptain = regIsCaptain();
+      const teamName = regOwn ? document.getElementById('rorg').value.trim() : regTeam;
+
+      // Reserve the captain slot so no later registrant for this team can claim it.
+      if (isCaptain) teamsWithCaptain.add(teamName);
+
+      // Build the registration record. We ALWAYS keep the email (it's the
+      // registration record + how we send the invite code). newsletterConsent
+      // only governs whether they enter the marketing newsletter flow.
+      const data = {
+        firstName:    document.getElementById('rfname').value.trim(),
+        lastName:     document.getElementById('rlname').value.trim(),
+        email:        document.getElementById('remail').value.trim(),
+        phone:        document.getElementById('rphone').value.trim(),
+        connection:   document.getElementById('rconn').value,
+        team:         teamName,
+        newTeam:      regOwn,
+        orgType:      regOwn ? document.getElementById('rorgtype').value : null,
+        isCaptain:    isCaptain,                 // silent backend flag
+        compEligible: isCaptain,                 // captain → comp candidate (cap at your 10–20 budget in Make)
+        ticketSource: isCaptain ? 'comp' : 'paid',
+        newsletterConsent: newsletterOptIn,      // true = add to newsletter; false = transactional email only
+        status:       isCaptain ? 'comp_pending' : 'pending_payment',
+        submittedAt:  new Date().toISOString()
+      };
+
+      // Send the record to Make.com (writes the Google Sheet row).
+      // Fire-and-forget; we don't block the UI on it. Make handles code delivery.
+      try {
+        fetch(MAKE_WEBHOOK_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data),
+          mode: 'no-cors'
+        });
+      } catch (err) { /* fail silently; Make/Stripe reconciliation is the backstop */ }
+
+      // Route the UI: comped organizers don't pay; paying participants go to Stripe.
+      document.querySelectorAll('.reg-panel').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.reg-step').forEach(s => { s.classList.remove('active'); s.classList.add('done'); });
+
+      if (isCaptain) {
+        // Comp path — no payment. AWT issues their code from the wallet via Make.
+        document.getElementById('regp5').classList.add('active');
+      } else {
+        // Paid path — prefill the Stripe link with their email so Make can match
+        // the payment back to this registration row.
+        const link = STRIPE_PAYMENT_LINK +
+          (STRIPE_PAYMENT_LINK.indexOf('?') === -1 ? '?' : '&') +
+          'prefilled_email=' + encodeURIComponent(data.email) +
+          '&client_reference_id=' + encodeURIComponent(data.email);
+        document.getElementById('payBtn').setAttribute('href', link);
+        document.getElementById('regp4').classList.add('active');
+      }
+      document.getElementById('register').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    // Scroll reveal
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach((el, i) => {
+      el.style.transitionDelay = (i % 4 * 0.08) + 's';
+      obs.observe(el);
+    });
+  </script>
+</body>
+</html>

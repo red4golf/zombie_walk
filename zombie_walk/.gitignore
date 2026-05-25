@@ -1,0 +1,12 @@
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+*.swp
+*~
+.vscode/
+.idea/
+
+# Local notes / drafts — keep secrets and scratch files out of the repo
+notes.local.md
+*.local
+.env
